@@ -3,9 +3,9 @@ To checking Coding Time.
 
 ## ScreenShot (스크린샷)
 <div>
-<img src="https://user-images.githubusercontent.com/74485195/103400752-a671a300-4b89-11eb-9657-1247b50de0e7.PNG" width="20%"></img>
-<img src="https://user-images.githubusercontent.com/74485195/103400757-a8d3fd00-4b89-11eb-8627-bd552d6ce0ef.PNG" width="20%"></img>
-<img src="https://user-images.githubusercontent.com/74485195/103400761-aa052a00-4b89-11eb-95ed-7e928e2e2f31.PNG" width="20%"></img>
+<img src="https://user-images.githubusercontent.com/74485195/103400752-a671a300-4b89-11eb-9657-1247b50de0e7.PNG" width="30%"></img>
+<img src="https://user-images.githubusercontent.com/74485195/103400757-a8d3fd00-4b89-11eb-8627-bd552d6ce0ef.PNG" width="30%"></img>
+<img src="https://user-images.githubusercontent.com/74485195/103400761-aa052a00-4b89-11eb-95ed-7e928e2e2f31.PNG" width="30%"></img>
 </div>
   
 ## component (컴포넌트)
@@ -29,8 +29,9 @@ To checking Coding Time.
  When you click, timer must be stopped by clicking Stop timer button.  
  클릭하기 전에, 정지버튼이 눌러저 타이머가 멈춰있어야 합니다.  
 5. Watch your Coding Time (코딩 시간을 확인하기)  
- The file in the path you set up or default path is recorded project title and time. (ex.CodingTimer 00:31:56)  
- 세팅해둔 경로 혹은 기본경로에 있는 파일에 프로젝트이름과 시간이 기록 되어 있습니다. (예. CodingTimer 00:31:56)  
+ The file in the path you set up or default path is recorded project title and time.  
+ 세팅해둔 경로 혹은 기본경로에 있는 파일에 프로젝트이름과 시간이 기록 되어 있습니다.  
+ ex.CodingTimer 00:31:56 (예시. CodingTimer 00:31:56)  
 ------------------------
 This program written by python languege and using Pyqt5  
 이 프로그램은 파이썬으로 작성되었습니다. 그리고 Pyqt5를 사용합니다.  
