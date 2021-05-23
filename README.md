@@ -1,7 +1,7 @@
 # ⏰ 코딩 타이머
 To checking Coding Time.
 
-## 구동 예시
+## 📷 스크린샷
 <div>
 <img src="https://user-images.githubusercontent.com/74485195/103400752-a671a300-4b89-11eb-9657-1247b50de0e7.PNG" width="30%"></img>
 <img src="https://user-images.githubusercontent.com/74485195/103400757-a8d3fd00-4b89-11eb-8627-bd552d6ce0ef.PNG" width="30%"></img>
