@@ -1,65 +1,71 @@
 import sys
 
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QLabel, QPushButton, QVBoxLayout, QHBoxLayout, QWidget, QLineEdit
 from win32api import GetSystemMetrics
 
 
-class Components:
-    questionLabel = QLabel()
-    titleLabel = QLabel()
-    timeLabel = QLabel()
-    logLabel = QLabel()
-    titleSettingButton = QPushButton()
-    timerStartingButton = QPushButton()
-    timerStoppingButton = QPushButton()
-    recordingButton = QPushButton()
-    titleLineEdit = QLineEdit()
+class ComponentFactory:
+    def makeLable(self, content):
+        return QLabel(content)
+
+    def makeButton(self, content):
+        return QPushButton(content)
+
+    def makeEditor(self):
+        return QLineEdit()
 
 
-class LayoutBoxes:
-    horizontalBox1 = QHBoxLayout()
-    horizontalBox2 = QHBoxLayout()
-    horizontalBox3 = QHBoxLayout()
-    horizontalBox4 = QHBoxLayout()
-    verticalBox = QVBoxLayout()
+class LayoutFactory:
+    def makeVBox(self):
+        return QVBoxLayout()
 
+    def makeHBox(self):
+        return QHBoxLayout()
 
-class GuiMaker(QWidget):
+class MyLayout(QWidget):
     def __init__(self):
         super().__init__()
-        self.settingComponent()
-    layoutBoxes = LayoutBoxes()
-    components = Components()
-
-    def settingComponent(self):
-        nonlocal component
-        component.titleSettingButton.setText("")
-
-    def settingLayout(self):
-        nonlocal layoutBoxes
 
 
-class mymainwindow(QMainWindow):
-    locationX = GetSystemMetrics(0) - 450
-    locationY = 50
-    def __init__(self):
-        QMainWindow.__init__(self, None, Qt.WindowStaysOnTopHint)
-        widget = GuiMaker()
-        self.setCentralWidget(widget)
-        self.initFrame()
+    def makeComponent(self):
+        componentFactory = ComponentFactory()
 
-    def initFrame(self):
-        menubar = self.menuBar()
-        menubar.setNativeMenuBar(False)
+        self.questionLabel = componentFactory.makeLable("지금 할 코딩은?")
+        self.titleLabel = componentFactory.makeLable("")
+        self.timeLabel = componentFactory.makeLable("00:00:00")
 
-        self.setWindowTitle('Coding Timer')
-        self.move(self.locationX, self.locationY)
-        self.setWindowIcon(QIcon('icon.png'))
-        self.setFixedSize(400, 200)
-        self.show()
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ex = mymainwindow()
-    sys.exit(app.exec_())
+        self.setTitleButton = componentFactory.makeButton("결정")
+        self.startTimerButton = componentFactory.makeButton("시작")
+        self.stopTimerButton = componentFactory.makeButton("정지")
+        self.recordTimerButton = componentFactory.makeButton("기록")
+
+        self.titleEditor = componentFactory.makeEditor()
+
+
+    def makeBoxLayout(self):
+        layoutFactory = LayoutFactory()
+
+        self.boxLayoutH1 = layoutFactory.makeHBox()
+        self.boxLayoutH2 = layoutFactory.makeHBox()
+        self.boxLayoutH3 = layoutFactory.makeHBox()
+        self.boxLayoutH4 = layoutFactory.makeHBox()
+
+        self.boxLayout = layoutFactory.makeVBox()
+
+
+    def fillBoxLayout(self):
+        self.titleLabel.setVisible(False)
+
+        self.boxLayoutH1.addStretch(1)
+        self.boxLayoutH1.addWidget(self.questionLabel)
+        self.boxLayoutH1.addWidget(self.titleEditor)
+        self.boxLayoutH1.addWidget(self.titleLabel)
+        self.boxLayoutH1.addWidget(self.setTitleButton)
+        self.boxLayoutH1.addStretch(1)
+
+
+
+
+
+
