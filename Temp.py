@@ -33,15 +33,19 @@ class MyLayout(QWidget):
 
         self.questionLabel = componentFactory.makeLable("지금 할 코딩은?")
         self.titleLabel = componentFactory.makeLable("")
+        self.titleEditor = componentFactory.makeEditor()
+        self.setTitleButton = componentFactory.makeButton("결정")
+
+        self.warningLable = componentFactory.makeLable("")
+
         self.timeLabel = componentFactory.makeLable("00:00:00")
 
-        self.setTitleButton = componentFactory.makeButton("결정")
         self.startTimerButton = componentFactory.makeButton("시작")
         self.stopTimerButton = componentFactory.makeButton("정지")
         self.recordTimerButton = componentFactory.makeButton("기록")
 
-        self.titleEditor = componentFactory.makeEditor()
-
+    def makeComponentsList(self):
+        self.ComponentsH1 = []
 
     def makeBoxLayout(self):
         layoutFactory = LayoutFactory()
@@ -54,15 +58,30 @@ class MyLayout(QWidget):
         self.boxLayout = layoutFactory.makeVBox()
 
 
-    def fillBoxLayout(self):
-        self.titleLabel.setVisible(False)
+    def fillVBoxLayout(self):
+        def fillHBoxLayout(layoutBox, components):
+            layoutBox.addStretch(1)
+            for component in components:
+                layoutBox.addWidget(component)
+            layoutBox.addStretch(1)
+        fillHBoxLayout(self.boxLayoutH1)
 
-        self.boxLayoutH1.addStretch(1)
-        self.boxLayoutH1.addWidget(self.questionLabel)
-        self.boxLayoutH1.addWidget(self.titleEditor)
-        self.boxLayoutH1.addWidget(self.titleLabel)
-        self.boxLayoutH1.addWidget(self.setTitleButton)
-        self.boxLayoutH1.addStretch(1)
+        self.boxLayoutH2.addStretch(1)
+        self.boxLayoutH2.addWidget(self.warningLable)
+        self.boxLayoutH2.addStretch(1)
+
+        self.boxLayoutH3.addStretch(1)
+        self.boxLayoutH3.addWidget(self.timeLabel)
+        self.boxLayoutH3.addStretch(1)
+
+        self.boxLayoutH4.addStretch(1)
+        self.boxLayoutH4.addWidget(self.startTimerButton)
+        self.boxLayoutH4.addWidget(self.stopTimerButton)
+        self.boxLayoutH4.addWidget(self.recordTimerButton)
+        self.boxLayoutH4.addStretch(1)
+
+
+
 
 
 
